@@ -1,0 +1,32 @@
+[
+  {
+    "timestamp": "2026-05-18T11:00:00Z",
+    "source_ip": "10.10.10.15",
+    "destination_ip": "93.184.216.34",
+    "destination_port": 443,
+    "protocol": "tcp",
+    "bytes_out": 18240,
+    "direction": "outbound",
+    "process": "browser"
+  },
+  {
+    "timestamp": "2026-05-18T11:01:00Z",
+    "source_ip": "10.10.10.15",
+    "destination_ip": "198.51.100.44",
+    "destination_port": 4444,
+    "protocol": "tcp",
+    "bytes_out": 612,
+    "direction": "outbound",
+    "process": "bash"
+  },
+  {
+    "timestamp": "2026-05-18T11:02:00Z",
+    "source_ip": "10.10.10.15",
+    "destination_ip": "203.0.113.10",
+    "destination_port": 53,
+    "protocol": "udp",
+    "bytes_out": 90,
+    "direction": "outbound",
+    "process": "systemd-resolved"
+  }
+]

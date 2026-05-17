@@ -15,13 +15,26 @@
 
 Use only in your own lab environment.
 
-## Status
+## Quick Start
 
-Scaffolded. Implementation pending.
+```bash
+python3 -m analysis.suspicious_outbound data/safe-lab-sample.pcap
+python3 -m unittest discover -s tests -p 'test_*.py'
+```
+
+The sample `.pcap` is sanitized JSON metadata for lab analysis. It does not contain exploit payloads or live packet traffic.
+
+## MVP Capabilities
+
+- Loads safe lab capture metadata
+- Scores unusual outbound destination ports
+- Flags shell-like processes opening remote-control connections
+- Explains why a connection is suspicious
+- Writes `docs/FINDINGS.md` and `reports/findings.json`
 
 ## Repository Status
 
-This repository contains the production-ready foundation for the Reverse Shell Study MVP. The current codebase is scaffolded and ready for focused implementation work.
+This repository contains a working, analysis-only Reverse Shell Study MVP with safe lab data, deterministic findings, reports, and tests.
 
 ## Production Foundation
 
@@ -33,4 +46,3 @@ This repository contains the production-ready foundation for the Reverse Shell S
 - Pull request and issue templates
 - Production readiness checklist
 - Safe ignore rules for local secrets and generated files
-
