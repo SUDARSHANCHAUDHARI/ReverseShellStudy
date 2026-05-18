@@ -1,0 +1,22 @@
+{
+  "connections": 3,
+  "outbound": 3,
+  "unique_destinations": 3,
+  "findings": 1,
+  "high_risk_findings": 1,
+  "highest_score": 95,
+  "destination_risk": [
+    {
+      "destination_ip": "198.51.100.44",
+      "highest_score": 95,
+      "highest_risk": "high",
+      "ports": [
+        4444
+      ],
+      "processes": [
+        "bash"
+      ],
+      "finding_count": 1
+    }
+  ]
+}

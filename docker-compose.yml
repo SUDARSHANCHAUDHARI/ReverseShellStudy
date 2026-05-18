@@ -1,0 +1,8 @@
+services:
+  reverse-shell-study:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ./docs:/app/docs
+      - ./reports:/app/reports

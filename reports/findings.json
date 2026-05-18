@@ -1,10 +1,14 @@
 [
   {
+    "timestamp": "2026-05-18T11:01:00+00:00",
+    "source_ip": "10.10.10.15",
     "destination_ip": "198.51.100.44",
     "destination_port": 4444,
+    "protocol": "TCP",
     "process": "bash",
     "risk": "high",
     "score": 95,
-    "reason": "unusual remote-control port 4444; destination port is outside normal web, DNS, or NTP traffic; interactive process 'bash' opened the connection; low-volume session can match command-and-control behavior"
+    "reason": "unusual remote-control port 4444; destination port is outside normal web, DNS, or NTP traffic; interactive process 'bash' opened the connection; low-volume session can match command-and-control behavior",
+    "recommended_action": "Isolate the lab host, preserve process/network evidence, and confirm whether the outbound session was authorized."
   }
 ]
