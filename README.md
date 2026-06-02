@@ -30,6 +30,19 @@ This project is defensive and analysis-focused. Use only with logs, systems, rep
 
 Use only in your own lab environment.
 
+
+## Install
+
+```bash
+pip install .
+```
+
+This registers the `reverse-shell-study` command. Or run directly:
+
+```bash
+python3 main.py --help
+```
+
 ## Quick Start
 
 ```bash
