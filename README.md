@@ -1,83 +1,116 @@
 # Reverse Shell Study
 
-[![Python](https://img.shields.io/badge/Python-3.12-blue)](#) [![Status](https://img.shields.io/badge/status-lab%20polish-green)](#) [![Security](https://img.shields.io/badge/security-defensive%20lab-purple)](#)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](#requirements)
+[![Status](https://img.shields.io/badge/status-MVP-green)](#status)
+[![Security](https://img.shields.io/badge/security-defensive%20lab-purple)](#safe-use)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Safe lab metadata analyzer for suspicious outbound reverse-shell-like network behavior.
+Safe lab metadata analyzer for suspicious outbound reverse-shell-like network behavior. Reads packet capture metadata (no payloads), flags interactive outbound sessions to non-standard ports, and recommends host isolation actions.
 
-- **Portfolio group:** Cybersecurity lab project
-- **Status:** Lab polish implemented, tested, committed, and pushed to GitHub
-- **GitHub:** https://github.com/SUDARSHANCHAUDHARI/ReverseShellStudy
-- **Local path:** `/Users/screencloudsudarshan/SUDARSHAN_CODE/sudarshan_repos/CyberSecurity/ReverseShellStudy`
+---
 
-## MVP Snapshot
+## Overview
 
-This repository includes a working MVP with safe sample data, deterministic detection logic, local tests, generated findings, summary JSON, timeline output, and Docker demo support.
+Reverse Shell Study is a defensive analysis lab tool for studying reverse-shell traffic patterns without handling real payloads. It reads pcap metadata (connection records only, no packet content), analyzes outbound connections to suspicious destinations and ports, and flags interactive-session indicators (low data, long duration, persistent unidirectional flow to a non-standard port). Outputs include findings, risk-scored summary, Markdown report, timeline, and analyst triage handoff.
 
-## Safe Use
+## Features
 
-This project is defensive and analysis-focused. Use only with logs, systems, repositories, and lab environments you own or have permission to assess.
+- Reads pcap-style connection metadata (no payloads)
+- Analyzes outbound connections per host
+- Flags suspicious destination IPs and non-standard ports
+- Detects interactive-process traffic patterns
+- Risk-scores each finding with recommended response actions
+- Outputs JSON findings, summary, Markdown report, timeline, and triage handoff
 
-## Core Features
+## Requirements
 
-- load .pcap metadata
-- detect unusual outbound connection
-- show destination IP/port
-- explain why suspicious
-- show source, protocol, timestamp, score, and recommended response
-- generate summary and timeline reports
+- Python 3.10 or newer
+- Linux, macOS, or Windows
+- No third-party Python packages (standard library only)
+- Optional: Docker for the demo container
 
-## Safety Note
-
-Use only in your own lab environment.
-
-
-## Install
+## Installation
 
 ```bash
+git clone https://github.com/SUDARSHANCHAUDHARI/ReverseShellStudy.git
+cd ReverseShellStudy
 pip install .
 ```
 
-This registers the `reverse-shell-study` command. Or run directly:
+This registers the `reverse-shell-study` CLI command.
+
+To run without installing:
 
 ```bash
 python3 main.py --help
 ```
 
-## Quick Start
+## Usage
+
+Analyze the included safe lab sample:
 
 ```bash
-python3 -m analysis.suspicious_outbound data/safe-lab-sample.pcap
-python3 -m unittest discover -s tests -p 'test_*.py'
+python3 main.py --out reports/report.md
 ```
 
-The sample `.pcap` is sanitized JSON metadata for lab analysis. It does not contain exploit payloads or live packet traffic.
+Generated outputs in `reports/`:
 
-Generated outputs:
+- `findings.json` — detected reverse-shell-like findings
+- `summary.json` — counts and severity breakdown
+- `report.md` — Markdown analysis report
+- `timeline.md` — chronological timeline of suspect connections
+- `triage.md` — analyst triage checklist
 
-- `docs/FINDINGS.md`
-- `reports/findings.json`
-- `reports/summary.json`
-- `reports/timeline.md`
+## Project Structure
+
+```
+ReverseShellStudy/
+├── analysis/       Connection analyzer, pcap metadata reader, suspicious outbound detector
+├── data/           Safe sample lab capture metadata
+├── reports/        Example generated output
+├── docker/         Dockerfile + compose support
+├── docs/           Architecture, security notes, demo
+├── tests/          Unit tests
+├── main.py         CLI entrypoint
+├── pyproject.toml  Package metadata
+└── LICENSE
+```
+
+## Testing
+
+```bash
+python3 -m unittest discover -s tests -p 'test_*.py'
+```
 
 ## Docker Demo
 
 ```bash
-docker compose run --rm reverse-shell-study
+docker compose run --rm reverse-shell-demo
 ```
 
-## Lab Polish Capabilities
+## Safe Use
 
-- Loads safe lab capture metadata
-- Scores unusual outbound destination ports
-- Flags shell-like processes opening remote-control connections
-- Explains why a connection is suspicious
-- Writes Markdown, JSON, summary, and timeline outputs
-- Adds destination risk rollups and recommended response actions
+This project is defensive and analysis-focused. It deliberately reads only connection metadata, not packet payloads. Use only with lab captures and environments you own or have explicit written permission to assess. The included sample is synthetic and safe for public demo use.
+
+## Status
+
+Working CLI MVP with tests, sample data, and Docker support.
 
 ## Roadmap
 
-- Add process ancestry metadata support
-- Add allow-list support for known admin tunnels
-- Add destination reputation enrichment as an optional offline fixture
-- Add dashboard view for timeline and destination risk
-- Prepare a tagged lab-polish release
+- Real pcap parsing (still metadata-only — no payload exposure)
+- Process-attribution heuristics (Linux netstat / ss correlation)
+- Allowlist for known good outbound services
+- Timeline visualization
+- GitHub release `v0.1.0-mvp`
+
+## License
+
+Released under the [MIT License](LICENSE). You are free to use, modify, and distribute this software with attribution.
+
+## Author
+
+**Sudarshan Chaudhari** — [SudarshanTechLabs](https://github.com/SUDARSHANCHAUDHARI)
+Bangkok, Thailand
+
+For inquiries: open an issue on [GitHub](https://github.com/SUDARSHANCHAUDHARI/ReverseShellStudy/issues).
