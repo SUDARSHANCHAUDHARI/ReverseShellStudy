@@ -12,3 +12,9 @@ requires-python = ">=3.10"
 
 [project.scripts]
 reverse-shell-study = "main:main"
+
+[tool.setuptools]
+py-modules = ["main"]
+
+[tool.setuptools.packages.find]
+include = ["analysis*"]
