@@ -21,7 +21,7 @@ Reverse Shell Study is a defensive lab analyzer for sanitized packet-capture met
 
 ## Outputs
 
-- `docs/FINDINGS.md`
+- `output/FINDINGS.generated.md` (gitignored; pass `--out docs/FINDINGS.md` to update the tracked doc)
 - `reports/findings.json`
 - `reports/summary.json`
 - `reports/timeline.md`

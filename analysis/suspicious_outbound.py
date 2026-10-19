@@ -116,7 +116,8 @@ def build_timeline_report(findings: list[ConnectionFinding]) -> str:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Analyze safe lab capture metadata for suspicious outbound sessions")
     parser.add_argument("capture", type=Path, nargs="?", default=Path("data/safe-lab-sample.pcap"))
-    parser.add_argument("--out", type=Path, default=Path("docs/FINDINGS.md"))
+    # Default stays out of git; pass --out docs/FINDINGS.md to refresh the tracked doc on purpose.
+    parser.add_argument("--out", type=Path, default=Path("output/FINDINGS.generated.md"))
     parser.add_argument("--json-out", type=Path, default=Path("reports/findings.json"))
     parser.add_argument("--summary-out", type=Path, default=Path("reports/summary.json"))
     parser.add_argument("--timeline-out", type=Path, default=Path("reports/timeline.md"))

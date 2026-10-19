@@ -16,7 +16,7 @@ Detected 1 suspicious outbound connection(s)
 ## Review Outputs
 
 ```bash
-cat docs/FINDINGS.md
+cat output/FINDINGS.generated.md
 cat reports/timeline.md
 cat reports/summary.json
 ```
