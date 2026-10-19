@@ -6,3 +6,4 @@ services:
     volumes:
       - ./docs:/app/docs
       - ./reports:/app/reports
+      - ./output:/app/output

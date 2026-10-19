@@ -37,6 +37,9 @@ coverage/
 # Tooling
 graphify-out/
 
+# Generated analysis report (default --out)
+output/
+
 # Logs / temp
 *.log
 *.tmp
