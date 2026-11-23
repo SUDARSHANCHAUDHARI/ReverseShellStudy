@@ -7,5 +7,14 @@ __pycache__/
 .ruff_cache/
 .venv/
 venv/
+.env
+.env.*
+!.env.example
 dist/
 build/
+.claude/
+.codex/
+.mcp.json
+CLAUDE.local.md
+graphify-out/
+repoguard-results/
